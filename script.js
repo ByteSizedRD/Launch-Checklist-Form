@@ -51,16 +51,18 @@ window.addEventListener('load', function() {
       let copilotNameInput = document.querySelector("input[name=copilotName]");
       let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
       let cargoMassInput = document.querySelector("input[name=cargoMass]");
-
+      console.log(isNaN(pilotNameInput.value))
 
       if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "" ){
          alert("All fields are required!");
          event.preventDefault();
        
-      } else if  (isNaN(fuelLevelInput.value)  || isNaN(cargoMassInput.value) ) {
+      } else if  ((isNaN(fuelLevelInput.value) === false)  || (isNaN(cargoMassInput.value) === false) || (isNaN(pilotNameInput.value) === true) || (isNaN(cargoMassInput.value) === true)) {
          alert("Please enter correct input value")
          event.preventDefault();
-      
+
+     
+
       } else if (Number(fuelLevelInput.value) < 10000) {
             document.getElementById("faultyItems").style.visibility = "visible"
             document.getElementById("launchStatus").style.color = "red";
